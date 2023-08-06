@@ -13,12 +13,12 @@ import "firebase/functions"; // for cloud functions
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyBZ3s0xKCNhnv82FOXY4k-osI1hbBoUgLw",
-    authDomain: "in-a-line-7be84.firebaseapp.com",
-    projectId: "in-a-line-7be84",
-    storageBucket: "in-a-line-7be84.appspot.com",
-    messagingSenderId: "540128111004",
-    appId: "1:540128111004:web:a7d85651cf0d4f28fcc059",
+    apiKey: "MockedAPIKey",
+    authDomain: "MockedAuthDomain",
+    projectId: "MockedProjectId",
+    storageBucket: "MockedStorageBucket",
+    messagingSenderId: "MockedMessageingSenderId",
+    appId: "MockedAppId",
 };
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
