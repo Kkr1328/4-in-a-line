@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <script src="./src/scripts/winResult.ts" type="module"></script>
+    <script src="./src/scripts/listenOnAuth.ts" type="module"></script>
+    <script type="module" src="./src/scripts/sidebar.ts"></script>
+    <title>Win Result🏆</title>
+  </head>
+
+  <body>
+    <div id="sidebar-container"><!-- sidebar.ts --></div>
+    <main>
+      <div id="winResult-page-container">
+        <section id="winResult-header-container">
+          <a href="home.html">
+            <img
+              src="/src/img/component/back-arrow.png"
+              id="back-button"
+              width="30"
+              height="30"
+              alt="black arrow"
+          /></a>
+          <header>
+            <h1 align="center">Result</h1>
+          </header>
+        </section>
+        <section id="result-box">
+          <section id="winner-username" class="result-username">
+            <!-- winResult.ts -->
+          </section>
+          <section id="loser-username" class="result-username">
+            <!-- winResult.ts -->
+          </section>
+          <section>
+            <p class="result">Winner</p>
+            <div id="winner">
+              <p id="winner-money"><!-- winResult.ts --></p>
+              <p id="winner-point"><!-- winResult.ts --></p>
+            </div>
+          </section>
+          <section>
+            <p class="result">Loser</p>
+            <div id="loser">
+              <p id="loser-money"><!-- winResult.ts --></p>
+              <p id="loser-point"><!-- winResult.ts --></p>
+            </div>
+          </section>
+        </section>
+        <section id="aftermatch-button" class="menu-li">
+          <ul>
+            <li>
+              <a>Home</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

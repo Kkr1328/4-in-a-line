@@ -1,0 +1,175 @@
+.sidebar {
+  --app-name-size: 1.5rem;
+
+  span {
+    color: white;
+    // #app-name {
+    //   color: $sidebar-app-name-clr;
+    // }
+  }
+
+  font-family: "Open Sans", sans-serif;
+  width: $sidebar-width;
+  position: fixed;
+  z-index: calc($backdrop-z-index - 1); // on top of almost every thing except .backdrop
+  background-color: $primary-clr;
+  height: 100vh;
+
+  transition: all $primary-transition-dur;
+
+  #sidebar-arrow {
+    transition: all $primary-transition-dur;
+  }
+
+  &:hover {
+    width: $sidebar-expanded-width;
+    transition: width $primary-transition-dur;
+
+    #app-name {
+      @keyframes app-name-size {
+        from {
+          font-size: 0;
+        }
+        75% {
+          font-size: calc(1.2 * var(--app-name-size));
+        }
+        to {
+          font-size: var(--app-name-size);
+        }
+      }
+
+      animation: app-name-size calc(2 * #{$primary-transition-dur}) ease;
+    }
+
+    #sidebar-arrow {
+      margin-left: auto;
+      transform: rotate(-180deg);
+      transition: all $primary-transition-dur;
+    }
+
+    #log-btn-container {
+      width: calc(#{$sidebar-expanded-width} - #{$profile-width});
+    }
+
+    span,
+    #log-btn-container > * {
+      display: block;
+    }
+  }
+}
+
+.sidebar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.sidebar-item {
+  width: 100%;
+
+  &:last-child {
+    margin-top: auto;
+  }
+}
+
+.sidebar-icon {
+  margin: 0 1.5rem;
+  max-width: 2rem;
+  min-width: 2rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  height: $sidebar-width;
+  text-decoration: none;
+
+  .profile-circle {
+    display: fixed;
+    max-width: $sidebar-mobile-height;
+    max-height: $sidebar-mobile-height;
+  }
+
+  span,
+  #log-btn-container > * {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $secondary-clr;
+  }
+
+  #log-btn-container {
+    height: inherit;
+    width: 0;
+    @include flex-center();
+  }
+}
+
+#app-name {
+  font-size: var(--app-name-size);
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+/* #### Mobile Phones: Portrait or Landscape #### */
+@include sidebar-mobile() {
+  // ul li {
+  //   // &:last-child a #log-btn-container {
+  //   //   // * This has to do with specificity to override, 😢
+  //   //    display: none;
+  //   // }
+  //   #log-btn-container > * {
+  //     display: block;
+  //   }
+  // }
+  .sidebar-link {
+    #log-btn-container > * {
+      display: block;
+    }
+  }
+  body {
+    scroll-padding-top: auto;
+  }
+
+  .sidebar-link {
+    height: $sidebar-mobile-height;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar {
+    height: $sidebar-mobile-height;
+    width: 100vw;
+    bottom: 0;
+
+    &:hover {
+      width: 100vw;
+
+      .sidebar-link span {
+        display: none;
+      }
+    }
+  }
+
+  .sidebar-list {
+    flex-direction: row;
+    justify-content: flex-end;
+    justify-items: center;
+  }
+
+  .sidebar-item {
+    width: 20%;
+
+    &:first-child {
+      display: none;
+    }
+
+    &:last-child {
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
+}

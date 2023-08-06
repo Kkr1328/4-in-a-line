@@ -1,0 +1,68 @@
+// * global
+$global-background-clr: rgb(243, 243, 243);
+
+$backdrop-z-index: 9999999; // dark translucent 100vw 100vh overlay, blocks everything behind it
+$greater-backdrop-z-index: calc(
+  #{$backdrop-z-index} + 1
+); // such as prompt accept overlay, sign up overlay
+
+// ** sidebar
+$primary-clr: hsl(0, 0%, 0%);
+$secondary-clr: hsl(286, 76%, 73%);
+$sidebar-app-name-clr: white;
+$sidebar-span-clr: white;
+// * svg icons on sidebar
+.sidebar-link svg {
+  fill: rgb(255, 255, 255);
+}
+$sidebar-breakpoint: 640px;
+
+// * home page
+$scoreboard-container-clr-start: rgb(250, 214, 146);
+$scoreboard-container-clr-end: rgb(250, 234, 203);
+$scoreboard-header-clr: rgb(255, 255, 255);
+$menu-bg-clr: rgb(228, 226, 226);
+$menu-li-bg-clr: #f8afa6;
+$menu-a-bg-clr: #f6eee0;
+$display-area-bg-clr: rgb(255, 255, 255);
+
+//  ** Lengths
+$sidebar-width: 5rem;
+$sidebar-expanded-width: 16rem;
+$sidebar-mobile-height: calc(#{$sidebar-width} - 1rem);
+$profile-width: $sidebar-width;
+$profile-height: $sidebar-width;
+
+//  ** Duration
+$primary-transition-dur: 300ms;
+
+// * login page
+$login-box-width: 60rem;
+$login-box-height: 40rem;
+$ext-login-hover: rgba(255, 255, 255, 0.753);
+
+// * scrollbar
+$scrollbar-width: 0.7vw;
+$scrollbar-track-bg: hsl(0, 100%, 95%);
+$scrollbar-track-bg-hover: hsl(0, 100%, 68%);
+$scrollbar-thumb-bg: hsl(229, 100%, 71%);
+$scrollbar-thumb-bg-hover: hsl(230, 100%, 65%);
+
+// * game page
+$player-area-bg-clr: rgb(255, 190, 190);
+$gameboard-container-bg-clr: rgb(186, 255, 215);
+$player-box-bg-clr: #fff;
+$player-box-on-play-bg-clr: rgb(252, 255, 66); // when his/her turn
+$player-box-height: 3rem;
+$player-section-width: 8rem;
+$timer-container-height: 1rem;
+$col-bg-clr: #fff;
+
+// * rule page
+$rule-container-clr-start: rgb(248, 203, 203);
+$rule-container-clr-end: rgb(240, 247, 151);
+
+// * market page
+$market-container-clr-start: rgb(255, 255, 255);
+$market-container-clr-end: rgb(169, 255, 248);
+$skin-li-bg-clr: rgb(255, 255, 255);

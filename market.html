@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./src/scripts/market.ts"></script>
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <script src="./src/scripts/listenOnAuth.ts" type="module"></script>
+    <script type="module" src="./src/scripts/sidebar.ts"></script>
+    <title>Market 🔴🟢🟡</title>
+  </head>
+
+  <body>
+    <div id="sidebar-container"><!-- sidebar.ts --></div>
+    <main>
+      <div id="market-page-container">
+        <section id="market-header-container">
+          <a href="./home.html">
+            <img src="/src/img/component/back-arrow.png" id="back-button" width="30" height="30"
+          /></a>
+          <header>
+            <h1 align="center">Market</h1>
+          </header>
+          <p id="your-coin"><!-- skins.ts --></p>
+        </section>
+        <section id="skin-collection-container">
+          <ul id="skins-ul">
+            <!-- skins.ts -->
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

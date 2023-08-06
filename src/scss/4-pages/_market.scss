@@ -1,0 +1,193 @@
+#market-page-container {
+  // height: calc(100vh - #{$sidebar-mobile-height});
+  height: calc(100vh);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr;
+  background: linear-gradient(-45deg, #ff8e6b, #ff67a1, #48ceff, #23d5ab);
+  animation: gradient 15s ease infinite;
+}
+
+#market-header-container {
+  //background-color: $display-area-bg-clr;
+
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 10%;
+  margin: 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  //border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-55%, 0%);
+  //$rule-text-height: 10%;
+  color: white;
+
+  header {
+    font-size: 2rem;
+    //height: $rule-text-height;
+  }
+}
+
+#skin-collection-container {
+  @include background-gradient($market-container-clr-start, $market-container-clr-end, horizontal);
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 30%;
+
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 23%);
+  margin: auto;
+  display: grid;
+  height: 80vh;
+  overflow-y: scroll;
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 20vw;
+    height: 12vh;
+
+    img {
+      width: 90px;
+      height: 90px;
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      top: 50%;
+    }
+
+    #skin-name {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    #skin-price {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    button {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    background-color: $skin-li-bg-clr;
+    padding: 5px 5px;
+    border-radius: 10px;
+
+    &:nth-child(n) {
+      display: grid;
+      margin: 0.5rem 1rem;
+      justify-content: center;
+      justify-self: center;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    background-color: $secondary-clr;
+    a {
+      color: $menu-li-bg-clr;
+    }
+  }
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+  #skin-collection-container {
+    width: 85vw;
+    height: 70vh;
+    top: 2%;
+    justify-content: center;
+    overflow-y: auto;
+    ul {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    li {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.5fr 0.5fr 0.5fr;
+      width: 70vw;
+      height: 12vh;
+
+      img {
+        width: 50px;
+        height: 50px;
+        transform: translateY(25%);
+        -ms-grid-column-align: left;
+        //position: center;
+      }
+    }
+  }
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  #market-page-container {
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  #market-header-container {
+    header {
+      font-size: 150%;
+    }
+  }
+  #skin-collection-container {
+    width: 49vw;
+    height: 60vh;
+    top: 20%;
+    left: 55%;
+    // grid-template-columns: 1.5fr 1fr;
+    // grid-template-rows: 1fr 1fr;
+    // grid-template-areas:
+    //   "mn-lg ext-lg"
+    //   "mn-lg no-lg";
+    justify-content: center;
+    overflow-y: scroll;
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 10px;
+      top: 0;
+      position: absolute;
+    }
+    li {
+      height: 100%;
+      img {
+        //justify-self: center;
+        width: 50px;
+        height: 50px;
+        //top: 50%;
+        //-ms-transform: translateY(50%);
+        transform: translateY(25%);
+      }
+      &:nth-child(n) {
+        display: grid;
+        margin: 1rem 1rem;
+        justify-content: center;
+        justify-self: center;
+        text-align: center;
+        font-size: 75%;
+      }
+      button {
+        height: 100%;
+      }
+    }
+  }
+  #market-page-container {
+    width: 100vw;
+    height: 100vh;
+  }
+}

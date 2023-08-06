@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./src/scripts/sidebar.ts"></script>
+    <script type="module" src="./src/scripts/online.ts"></script>
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <title>Game 😎</title>
+  </head>
+
+  <body>
+    <div id="sidebar-container">
+      <!-- sidebar.ts -->
+    </div>
+    <main class="adjust-for-sidebar">
+      <div id="gameplay-container">
+        <section class="player-box" id="player-area1">
+          <div class="player" data-index="1" id="player1-name">
+            <span class="player-name">Player 1</span>
+          </div>
+        </section>
+        <section class="timer-gameboard-container">
+          <div id="player-turn-label"><!-- online.ts -->Welcome! 😀</div>
+          <span id="clock-timer"><!-- online.ts -->Let's go</span>
+          <div class="gameboard-container">
+            <div class="col" data-col="0" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="1" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="2" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="3" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="4" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="5" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+            <div class="col" data-col="6" data-stack-pointer="0">
+              <div class="cell" data-row="5" data-owned-by=""></div>
+              <div class="cell" data-row="4" data-owned-by=""></div>
+              <div class="cell" data-row="3" data-owned-by=""></div>
+              <div class="cell" data-row="2" data-owned-by=""></div>
+              <div class="cell" data-row="1" data-owned-by=""></div>
+              <div class="cell" data-row="0" data-owned-by=""></div>
+            </div>
+          </div>
+        </section>
+        <section class="player-box" id="player-area2">
+          <div class="player" data-index="2">
+            <span class="player-name" id="player2-name">Player 2</span>
+          </div>
+        </section>
+      </div>
+      <div id="dropping-coin-overlay" class="overlay">
+        <h1><!-- online.ts --></h1>
+        <h2><!-- online.ts --></h2>
+      </div>
+    </main>
+  </body>
+</html>

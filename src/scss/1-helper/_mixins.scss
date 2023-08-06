@@ -1,0 +1,40 @@
+/// Sets background-image with no-repeat and cover.
+/// Defaults: background-position: center
+/// @param $imgUrl - image valid path ie: './assets/img.png'
+/// @param $position - background-position
+@mixin bgImg($imgUrl, $position: center) {
+  background-image: url("#{$imgUrl}");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: $position;
+}
+
+// * background linear gradient
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == "vertical" {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == "horizontal" {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+// * display
+@mixin flex-center($dir: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $dir;
+}
+
+// * sidebar breakpoint
+@mixin sidebar-mobile() {
+  @media screen and (max-width: $sidebar-breakpoint) {
+    @content;
+  }
+}

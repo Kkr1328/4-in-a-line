@@ -1,0 +1,25 @@
+:root {
+  &:hover {
+    --scrollbar-track-bg: $scrollbar-track-bg-hover;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $scrollbar-track-bg;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $scrollbar-thumb-bg;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $scrollbar-thumb-bg-hover;
+}

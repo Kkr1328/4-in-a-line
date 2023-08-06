@@ -1,0 +1,84 @@
+#rule-page-container {
+  // height: calc(100vh - #{$sidebar-mobile-height});
+  height: calc(100vh);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr;
+  background: linear-gradient(-45deg, #ff8e6b, #ff67a1, #48ceff, #23d5ab);
+  animation: gradient 15s ease infinite;
+  justify-content: center;
+}
+#back-button {
+  justify-self: center;
+}
+#rule-header-container {
+  // background-color: $display-area-bg-clr;
+
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 10%;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  //border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-55%, 20%);
+  $rule-text-height: 10%;
+  color: white;
+
+  header {
+    font-size: 2rem;
+    height: $rule-text-height;
+  }
+}
+
+#rule-detail-container {
+  @include background-gradient($rule-container-clr-start, $rule-container-clr-end, horizontal);
+  @include flex-center(column);
+  justify-content: center;
+  justify-self: center;
+  min-height: 30%;
+  margin: 1rem 1rem;
+  padding: 1rem 5rem 1rem 5rem;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(0%, -50%);
+  text-align: center;
+  max-width: 75%;
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  #rule-page-container {
+    justify-content: center;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  #rule-header-container {
+    header {
+      font-size: 150%;
+    }
+  }
+  #rule-detail-container {
+    top: 55%;
+    left: 15%;
+  }
+  #back-button {
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+  #rule-detail-container {
+    padding: 1rem 2rem 1rem 2rem;
+    left: 10%;
+  }
+}

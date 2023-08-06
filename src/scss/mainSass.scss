@@ -1,0 +1,23 @@
+// 1 Helper
+@import "./1-helper/variables"; // use balling prefixing $
+@import "./1-helper/reset"; // reset default styling
+@import "./1-helper/mixins"; // use by calling @include __identifier__;
+@import "./1-helper/transitions";
+
+// 2 Basics
+@import "./2-basics/global";
+@import "./2-basics/modules";
+@import "./2-basics/typography"; // fonts
+
+// 3 Components
+@import "./3-components/scrollbar";
+@import "./3-components/sidebar";
+
+// 4 Pages
+@import "./4-pages/winResult";
+@import "./4-pages/home";
+@import "./4-pages/login";
+@import "./4-pages/game";
+@import "./4-pages/rule";
+@import "./4-pages/market";
+@import "./4-pages/history";

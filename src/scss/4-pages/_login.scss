@@ -1,0 +1,315 @@
+:root {
+  --login-primary-light: hsl(60, 93%, 74%);
+  --login-primary-dark: hsl(60, 48%, 37%);
+  --login-secondary: hsl(70, 93%, 74%);
+  --login-transition-dur: 300ms;
+}
+#app-logo {
+  position: absolute;
+  justify-self: center;
+  transform: translateY(10%);
+}
+#login-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+  width: $login-box-width;
+  height: $login-box-height;
+  border-radius: 1rem;
+
+  background: linear-gradient(-45deg, #ff8e6b, #ff67a1, #48ceff, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "mn-lg ext-lg"
+    "mn-lg no-lg";
+}
+
+#mn-login {
+  // background-color: aqua;
+  grid-area: mn-lg;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  span {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  .form {
+    width: 65%;
+  }
+
+  .field {
+    margin: 1rem auto;
+  }
+
+  input {
+    border-radius: 0.5rem;
+    border-style: none;
+    height: 2rem;
+    padding-left: 1ch;
+    width: 100%;
+  }
+
+  .form-buttons {
+    display: flex;
+
+    button + button {
+      margin-left: 1rem;
+    }
+
+    button {
+      &:first-of-type {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+#ext-login {
+  // background-color: aquamarine;
+  grid-area: ext-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1rem;
+
+  svg {
+    width: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  .external-link {
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 5px;
+
+    &:first-child {
+      margin-bottom: 0.5rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $ext-login-hover;
+      border-radius: 1rem;
+      color: black;
+    }
+  }
+}
+
+#no-login {
+  // background-color: deeppink;
+  grid-area: no-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  button {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+#sign-up-overlay {
+  // register overlay
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 4rem 0;
+  border: black solid 1px;
+  border-radius: 1rem;
+  width: 40%;
+  min-width: 20rem;
+  // background-color: rgba(178, 193, 209, 0.87);
+  @include background-gradient(pink, lightblue, 45deg);
+
+  // will show when sign up button is clicked
+  visibility: hidden;
+  opacity: 0;
+  z-index: $greater-backdrop-z-index;
+  transition: visibility 0s, opacity 0.5s linear;
+
+  .distinct-input-box {
+    min-width: 20rem;
+  }
+
+  .distinct-input-box + .distinct-input-box {
+    // between the same kind
+    margin-top: 1rem;
+  }
+
+  h2 {
+    font-size: large;
+    margin-bottom: 0.2rem;
+  }
+
+  input {
+    border-radius: 0.5rem;
+    border: grey solid 1px;
+    height: 2rem;
+    padding-left: 1rem;
+    width: 100%;
+  }
+
+  .overlay-button {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    height: fit-content;
+  }
+}
+
+button {
+  border-radius: 0.2rem;
+  border-style: none;
+  cursor: pointer;
+  padding: 0 20px;
+  height: 2rem;
+  transition: all 300ms;
+
+  &:hover {
+    background-color: var(--login-primary-light);
+    transform: scale(1.1);
+    transition: all 300ms;
+  }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait),
+  all and (device-width: 1024px) and (device-height: 1366px) and (orientation: portrait) {
+  #mn-login {
+    span {
+      transform: scale(0.7);
+    }
+  }
+  #login-box {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr;
+    grid-template-areas:
+      "mn-lg"
+      "ext-lg"
+      "no-lg";
+  }
+
+  #ext-login {
+    padding-top: 3rem;
+  }
+}
+@media all and (device-width: 1024px) and (device-height: 768px) and (orientation: landscape),
+  all and (device-width: 1366px) and (device-height: 1024px) and (orientation: landscape) {
+  #no-login {
+    padding-bottom: 5rem;
+  }
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-width: 650px) and (orientation: portrait) {
+  #app-logo {
+    img {
+      width: 200px;
+      height: 75px;
+    }
+  }
+  #login-box {
+    width: 90vw;
+    height: 90vh;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr;
+    grid-template-areas:
+      "mn-lg"
+      "ext-lg"
+      "no-lg";
+  }
+
+  #mn-login {
+    transform: translateY(10%);
+    span {
+      transform: scale(0.5);
+      margin-bottom: 0;
+    }
+  }
+
+  #ext-login {
+    padding-top: 0;
+
+    svg {
+      transform: scale(0.8);
+    }
+  }
+
+  #no-login {
+    button {
+      &:nth-child(2) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  #app-logo {
+    left: 17.5%;
+    img {
+      width: 200px;
+      height: 75px;
+    }
+  }
+  #login-box {
+    width: 95vw;
+    height: 95vh;
+
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "mn-lg ext-lg"
+      "mn-lg no-lg";
+  }
+
+  #mn-login {
+    justify-content: center;
+    span {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  #ext-login {
+    padding-top: 3rem;
+  }
+}

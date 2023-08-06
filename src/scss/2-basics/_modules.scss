@@ -1,0 +1,14 @@
+.profile-circle {
+  width: $profile-width;
+  height: $profile-height;
+  transform: scale(0.8);
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.logInOut-btn {
+  width: auto;
+  color: white;
+  font-weight: bolder;
+}

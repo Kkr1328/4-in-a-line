@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script type="module" src="/src/scripts/index.ts"></script>
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <script src="/src/scripts/signUpOverlay.ts" type="module"></script>
+  </head>
+
+  <body>
+    <div id="login-box">
+      <div id="app-logo">
+        <img src="/src/img/component/4-in-a-line-logo.png" width="400" height="100" />
+      </div>
+      <div id="mn-login">
+        <span>Login</span>
+        <h2>to appear on the scoreboard 😉</h2>
+        <div class="form">
+          <div class="field">
+            <label for="email">Email</label>
+            <input autofocus autocomplete="email" spellcheck="false" type="email" id="email" />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" />
+          </div>
+          <div class="form-buttons">
+            <button id="signup-btn">Sign Up</button>
+            <button class="login-btn">Login</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="ext-login">
+        <div class="external-link" id="google-login-area">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 48 48"
+          >
+            <defs>
+              <path
+                id="a"
+                d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
+              />
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible" />
+            </clipPath>
+            <path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" />
+            <path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" />
+            <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" />
+            <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" />
+          </svg>
+          <span>Login with Google</span>
+        </div>
+      </div>
+      <div id="no-login">
+        <button id="anonymous-btn">Play Anonymously</button>
+        <a href="./offline.html"><button id="play-off-btn">Play Offline</button></a>
+      </div>
+    </div>
+    <div id="blur-overlay-filter" class="backdrop"></div>
+    <section id="sign-up-overlay">
+      <div class="distinct-input-box">
+        <h2 class="input-box-label">Email</h2>
+        <input type="email" id="signupEmail" />
+      </div>
+      <div class="distinct-input-box">
+        <h2 class="input-box-label">Name</h2>
+        <input type="text" id="signupName" />
+      </div>
+      <div class="distinct-input-box">
+        <h2 class="input-box-label">Password</h2>
+        <input type="password" id="signupPass" />
+      </div>
+      <div class="distinct-input-box">
+        <h2 class="input-box-label">Confirm Password</h2>
+        <input type="password" id="confirmedPass" />
+      </div>
+      <button class="overlay-button">
+        <h2>Sign Up</h2>
+      </button>
+    </section>
+  </body>
+</html>

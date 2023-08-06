@@ -1,0 +1,12 @@
+{
+  "printWidth": 100,
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}

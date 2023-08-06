@@ -1,0 +1,332 @@
+// mobile phone vertical
+#home-page-container {
+  height: calc(100vh - #{$sidebar-mobile-height});
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10fr 1fr;
+  background: linear-gradient(-45deg, #ff8e6b, #ff67a1, #48ceff, #23d5ab);
+  animation: gradient 15s ease infinite;
+  justify-content: center;
+}
+#scoreboard-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "scoreboard menu";
+  //justify-self: center;
+  height: 100%;
+}
+.overlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
+  z-index: $greater-backdrop-z-index;
+  min-width: 15rem;
+  min-height: 10rem;
+  border-radius: 2rem;
+  background-color: rgb(144, 144, 255);
+  @include flex-center(column);
+  box-shadow: 5px 5px #888888;
+  visibility: hidden; // will show when gameRef is found, will be hidden will other player cancels
+
+  &:hover {
+    background-color: rgb(187, 187, 255);
+  }
+}
+#scoreboard {
+  grid-area: scoreboard;
+  @include background-gradient(
+    $scoreboard-container-clr-start,
+    $scoreboard-container-clr-end,
+    vertical
+  );
+  color: $scoreboard-header-clr;
+  // transform: translateY(5%);
+  @include flex-center(column);
+  //justify-content: center;
+  min-height: 80%;
+  margin: 1rem;
+  border-radius: 20px;
+  padding: 1rem 1rem 1rem 1rem;
+  width: 100%;
+  $scoreboard-text-height: 10%;
+
+  header {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    height: $scoreboard-text-height;
+    transform: translateY(25%);
+    h2 {
+      // text "Scoreboard"
+      color: rgb(85, 85, 85);
+    }
+  }
+  #user-name {
+    // "Hello username"
+    transform: translateY(-100%);
+    color: rgb(54, 54, 54);
+  }
+  #scoreboard-box {
+    display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 12fr 5fr 5.2fr;
+    grid-template-rows: 1fr 20fr;
+    grid-gap: 5px;
+    width: 100%;
+    #rank {
+      border-radius: 20px;
+      grid-column: 1;
+      // width: 5vw;
+      text-align: center;
+      background-color: #23d5ab;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #name {
+      border-radius: 20px;
+      grid-column: 2;
+      // width: 36vw;
+      text-align: center;
+      background-color: #23d5ab;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #point {
+      border-radius: 20px;
+      grid-column: 3;
+      // width: 12vw;
+      text-align: center;
+      background-color: #23d5ab;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #win-rate {
+      border-radius: 20px;
+      grid-column: 4;
+      // width: 17vw;
+      background-color: #23d5ab;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #display {
+      background-color: $display-area-bg-clr;
+      width: 100%;
+      height: 70vh;
+      grid-column: 1 / span 4;
+      grid-row: 2;
+      border-radius: 20px;
+      //transform: translateY(-5%);
+      overflow-y: scroll;
+      li {
+        display: grid;
+        grid-template-columns: 1fr 12fr 5fr 5.2fr;
+        grid-gap: 5px;
+        text-align: center;
+      }
+      #rank-value {
+        grid-column: 1;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+      }
+      #name-value {
+        grid-column: 2;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+      }
+      #point-value {
+        grid-column: 3;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+      }
+      #rate-value {
+        grid-column: 4;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: #000000;
+      }
+    }
+  }
+}
+
+#menu {
+  grid-area: menu;
+  overflow: hidden; // in case the button overflows
+  //background-color: $menu-bg-clr;
+  min-height: 20%;
+  // transform: translateY(5%);
+  @include flex-center();
+  ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 3rem;
+  }
+  li {
+    background-color: $menu-li-bg-clr;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $primary-clr;
+    }
+
+    &:nth-child(n) {
+      // margin: 0 1rem;
+      background-color: $menu-li-bg-clr;
+      a {
+        color: $menu-a-bg-clr;
+      }
+    }
+
+    // this needs to be at the bottom, idk why
+    &:hover {
+      background-color: $menu-a-bg-clr;
+      a {
+        color: $menu-li-bg-clr;
+      }
+    }
+  }
+}
+
+// #waiting-box-overlay {
+//   position: absolute;
+//   z-index: 50;
+//   top: 50%;
+//   left: 50%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   align-content: space-between;
+//   transform: translate(-50%, -50%);
+//   background-color: rgb(182, 111, 111);
+//   padding: 1rem 0;
+//   border-radius: 1rem;
+//   width: 20%;
+//   min-width: 10rem;
+//   visibility: hidden;
+// }
+
+@media only screen and (min-width: $sidebar-breakpoint) {
+  // applies these to vertical sidebar
+  #home-page-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 1fr;
+    justify-content: center;
+  }
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+  #scoreboard-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 1fr;
+    grid-template-areas:
+      "scoreboard"
+      "menu";
+    row-gap: 2rem;
+    justify-self: center;
+  }
+  #scoreboard {
+    transform: translate(-2.8%, 0%);
+    width: 97vw;
+    height: 75vh;
+    #user-name {
+      transform: translateY(-80%);
+    }
+    #scoreboard-box {
+      grid-template-rows: 1fr 20fr;
+      width: 100%;
+      #rank {
+        width: 12vw;
+      }
+      #name {
+        width: 30vw;
+      }
+      #win-rate {
+        width: 30vw;
+      }
+      #display {
+        height: 55vh;
+        li {
+          grid-template-columns: 0.8fr 2fr 1fr 2fr;
+        }
+      }
+    }
+  }
+  #menu {
+    transform: translate(-6%, -70%);
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 1rem;
+      transform: translate(0%, 50%);
+      justify-items: center;
+      //z-index: 5;
+    }
+  }
+}
+
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  #scoreboard {
+    transform: translateY(-1%);
+    width: 65vw;
+    height: 85vh;
+    #user-name {
+      transform: translateY(-50%);
+    }
+    #scoreboard-box {
+      width: 100%;
+      grid-template-rows: 1fr 10fr;
+      #rank {
+        width: 7vw;
+      }
+      #name {
+        width: 25vw;
+      }
+      #point {
+        width: 10vw;
+      }
+      #win-rate {
+        width: 15vw;
+      }
+      #display {
+        height: 55vh;
+        li {
+          grid-template-columns: 0.6fr 2.3fr 0.9fr 1.2fr;
+        }
+      }
+    }
+  }
+
+  #menu {
+    transform: translateX(-10%);
+  }
+}

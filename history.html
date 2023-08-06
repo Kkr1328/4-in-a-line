@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <script src="./src/scripts/history.ts" type="module"></script>
+    <script src="./src/scripts/listenOnAuth.ts" type="module"></script>
+    <script type="module" src="./src/scripts/sidebar.ts" defer></script>
+    <title>History 🏆</title>
+  </head>
+
+  <body>
+    <div id="sidebar-container"><!-- sidebar.ts --></div>
+    <main class="adjust-for-sidebar">
+      <section id="history-header-container">
+        <a href="home.html">
+          <img src="/src/img/component/back-arrow.png" id="back-button" width="30" height="30"
+        /></a>
+        <header>
+          <h1 align="center">History</h1>
+        </header>
+      </section>
+      <div id="history-page-container">
+        <section id="history-board">
+          <div id="opponent">Opponent</div>
+          <div id="result">Result</div>
+          <div id="turns">Turns</div>
+          <div id="history-box">
+            <ul id="history-ul">
+              <!-- history.ts -->
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

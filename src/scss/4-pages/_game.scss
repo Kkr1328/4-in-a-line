@@ -1,0 +1,148 @@
+// vertical sidebar
+div#gameplay-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &:nth-child(2) {
+      // the container of the gameboard and the timer text
+      flex-grow: 1;
+      flex-basis: 100%;
+      #timer-container {
+        // height: $timer-container-height;
+        height: 10%;
+      }
+      .gameboard-container {
+        background-color: $gameboard-container-bg-clr;
+        height: 90vh;
+        width: 105vh;
+        // height: 80vh;
+        flex-grow: 1;
+        display: flex;
+        padding: 1rem 1rem;
+        gap: 5px;
+
+        .col {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          gap: 5px;
+          flex-direction: column;
+          background-color: $col-bg-clr;
+          border-radius: 20px;
+
+          &:hovor {
+            background-color: $player-box-on-play-bg-clr;
+          }
+
+          .cell {
+            height: 100%;
+            width: 100%;
+            background-color: $gameboard-container-bg-clr;
+            border-radius: 50%;
+            border: $col-bg-clr solid 0.25rem;
+            background-size: cover; // to make the coin image actually shows
+          }
+        }
+      }
+    }
+
+    h2 {
+      display: block;
+      font-size: 1rem;
+    }
+  }
+}
+
+.player-box {
+  width: $player-section-width;
+  width: 600vw;
+  background-color: $player-area-bg-clr;
+  // background-image: ; online/offline.ts
+  background-size: cover;
+
+  .player {
+    border-radius: 20px;
+    width: fit-content;
+    height: $player-box-height;
+    padding: 10px 15px;
+    background-color: $player-box-bg-clr;
+    @include flex-center;
+  }
+}
+
+@media only screen and (max-width: $sidebar-breakpoint) {
+  div#gameplay-container {
+    height: calc(100vh - #{$sidebar-mobile-height});
+    flex-wrap: wrap;
+
+    section {
+      &:first-child {
+        height: $player-box-height;
+        width: 50vw;
+        order: 2;
+      }
+      &:nth-child(2) {
+        // gameboard
+        flex-basis: 100%;
+        // height: calc(100vh - #{$sidebar-mobile-height} - #{$player-box-height});
+
+        .gameboard-container {
+          .col {
+            border-radius: 5px;
+          }
+        }
+        // height: calc(100vh - #{$sidebar-mobile-height} - #{$player-box-height});
+      }
+      &:last-child {
+        height: $player-box-height;
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+  div#gameplay-container {
+    height: 100vh;
+    section {
+      &:nth-child(2) {
+        .gameboard-container {
+          width: 100vw;
+          height: 45vh;
+          .col {
+            border-radius: 5px;
+          }
+        }
+      }
+      &:first-child {
+        height: 55vh;
+      }
+      &:last-child {
+        height: 55vh;
+      }
+    }
+  }
+}
+
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  div#gameplay-container {
+    height: 100vh;
+    section {
+      &:nth-child(2) {
+        .gameboard-container {
+          .col {
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}

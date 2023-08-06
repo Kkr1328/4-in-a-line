@@ -1,0 +1,24 @@
+{
+  "name": "four-in-lin-vite",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --open",
+    "format": "prettier --write .",
+    "build-preview": "tsc && vite build && vite preview --open",
+    "deploy-hosting": "firebase deploy --only hosting",
+    "build-deploy": "tsc && vite build && firebase deploy --only hosting"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "autoprefixer": "^10.2.5",
+    "firebase": "^8.4.2",
+    "postcss": "^8.2.13",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.11",
+    "typescript": "^4.2.3",
+    "vite": "^2.2.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./src/scripts/sidebar.ts"></script>
+    <link rel="stylesheet" href="./src/scss/mainSass.scss" />
+    <script type="module" src="./src/scripts/home.ts"></script>
+    <script src="./src/scripts/listenOnAuth.ts" type="module"></script>
+    <script>
+      function Goto(link) {
+        window.location.href = link;
+      }
+    </script>
+    <title>Home 😎</title>
+  </head>
+
+  <body>
+    <div class="backdrop"><!-- overlay that blocks everything behind --></div>
+    <div id="sidebar-container">
+      <!-- sidebar.ts -->
+    </div>
+    <main class="adjust-for-sidebar">
+      <div id="home-page-container">
+        <div id="scoreboard-container">
+          <section id="scoreboard">
+            <header>
+              <h2>Scoreboard</h2>
+            </header>
+            <div id="user-name">
+              <!-- will be inserted by js -->
+            </div>
+            <section id="scoreboard-box">
+              <div id="rank">Rank</div>
+              <div id="name">Name</div>
+              <div id="point">Point</div>
+              <div id="win-rate">Win Rate</div>
+              <div id="display">
+                <ul id="scoreboard-ul">
+                  <!-- This will be populated by home.ts -->
+                </ul>
+              </div>
+            </section>
+          </section>
+
+          <section id="menu">
+            <ul>
+              <li class="menu-li" id="play-btn">Play</li>
+              <li class="menu-li" id="market-btn" onclick='Goto("market.html")'>Market</li>
+              <li class="menu-li" id="rule-btn" onclick='Goto("rule.html")'>Rule</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div id="waiting-box-overlay" class="overlay">
+      <h1>Finding a game.....</h1>
+      <h2>Click to cancel</h2>
+    </div>
+    <div id="accept-overlay" class="overlay">
+      <h1></h1>
+      <h2></h2>
+    </div>
+  </body>
+</html>

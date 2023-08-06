@@ -1,0 +1,36 @@
+@mixin transition($what: all, $time: 0.3s, $how: ease-in-out) {
+  // * add transition. usage: @include transition(all,2s,ease-out);
+
+  -webkit-transition: $what $time $how;
+  -moz-transition: $what $time $how;
+  -ms-transition: $what $time $how;
+  -o-transition: $what $time $how;
+  transition: $what $time $how;
+}
+
+@mixin skew-background-transition(
+  // * background transition, example, in buttons when are hovered
+  // color
+  $initial,
+  // color
+  $hover,
+  $angle: 90deg,
+  $inverted: false
+) {
+  background: linear-gradient($angle, $hover 0%, $hover 50%, $initial 50%, $initial 100%);
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+  @if $inverted {
+    background-position: left bottom;
+  }
+  transition: background-position 0.25s ease-out;
+
+  &:hover {
+    background-position: left bottom;
+    @if $inverted {
+      background-position: right bottom;
+    }
+  }
+}

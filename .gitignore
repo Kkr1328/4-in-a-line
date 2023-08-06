@@ -1,0 +1,10 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+functions/firebase-debug.log
+firestore-debug.log
+ui-debug.log
+firebase-debug.log
+.firebase/hosting.ZGlzdA.cache

@@ -1,0 +1,211 @@
+// mobile phone vertical
+#winResult-page-container {
+  // height: calc(100vh - #{$sidebar-mobile-height});
+  height: calc(100vh);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  background: linear-gradient(-45deg, #ff8e6b, #ff67a1, #48ceff, #23d5ab);
+}
+
+#winResult-header-container {
+  //background-color: $display-area-bg-clr;
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 10%;
+  margin: 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  position: absolute;
+  left: 50%;
+  transform: translate(-55%, 20%);
+  $winResult-text-height: 10%;
+  color: white;
+
+  header {
+    font-size: 2rem;
+    height: $winResult-text-height;
+  }
+}
+
+#result-box {
+  @include background-gradient($market-container-clr-start, $market-container-clr-end, horizontal);
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 30%;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  margin: auto;
+  display: inline-grid;
+  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 2fr 2fr;
+
+  .result-username {
+    font-size: 2rem;
+  }
+
+  #winner-user {
+    height: 150px;
+    width: 200px;
+    font-size: 45px;
+    padding-left: 5.5rem;
+    transform: translateY(25%);
+    //padding: 0rem 10rem 0rem 10rem;
+  }
+  #loser-user {
+    height: 100px;
+    width: 200px;
+    font-size: 35px;
+    padding-left: 7rem;
+    transform: translateY(25%);
+    //padding: 2rem 12rem 2rem 12rem;
+  }
+  #winner-name {
+    font-size: 40px;
+  }
+  #loser-name {
+    font-size: 25px;
+  }
+  #winner {
+    font-size: 20px;
+  }
+  #loser {
+    transform: translateY(14%);
+    font-size: 20px;
+  }
+  &:nth-child(n) {
+    display: grid;
+    margin: 1rem 1rem;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    //padding:0rem 3rem;
+  }
+}
+#aftermatch-button {
+  @include flex-center(column);
+  justify-content: center;
+  min-height: 10%;
+  margin: 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
+  position: absolute;
+  top: 80%;
+  left: 45%;
+  transform: translate(-40%, -20%);
+  width: 70%;
+  margin: auto;
+
+  li {
+    background-color: $menu-li-bg-clr;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    transform: translateY(40%);
+    a {
+      text-decoration: none;
+      color: $primary-clr;
+    }
+
+    &:nth-child(n) {
+      margin: 0 1rem;
+    }
+
+    // &:first-child {
+    //   // the play button
+    //   background-color: $scoreboard-container-clr-start;
+    //   a {
+    //     color: $menu-li-bg-clr;
+    //   }
+    // }
+
+    // this needs to be at the bottom, idk why
+    &:hover {
+      background-color: $primary-clr;
+      a {
+        color: $menu-li-bg-clr;
+      }
+    }
+  }
+}
+
+@media screen and (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+  #result-box {
+    top: 40%;
+    width: 70%;
+    #winner-user {
+      height: 50px;
+      width: 100px;
+      padding-left: 1rem;
+      //padding: 1rem 1rem 1rem 1rem;
+    }
+    #loser-user {
+      height: 50px;
+      width: 100px;
+      padding-left: 1rem;
+      //padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    }
+    #winner-name {
+      font-size: 30px;
+    }
+    #loser-name {
+      font-size: 25px;
+    }
+    #winner {
+      font-size: 15px;
+    }
+    #loser {
+      transform: translateY(5%);
+      font-size: 15px;
+    }
+  }
+  #aftermatch-button {
+    top: 60%;
+    //left: 50%;
+  }
+}
+
+@media screen and (max-device-width: 850px) and (orientation: landscape) {
+  #winResult-header-container {
+    left: 55%;
+  }
+  #result-box {
+    top: 55%;
+    left: 55%;
+    width: 50%;
+    height: 50%;
+    #winner-user {
+      height: 50px;
+      width: 150px;
+      padding-left: 2rem;
+      // padding: 0rem 2.5rem 0rem 2.5rem;
+    }
+    #loser-user {
+      height: 50px;
+      width: 150px;
+      padding-left: 2rem;
+      // padding: 0.5rem 3rem 0.5rem 3rem;
+    }
+    #winner-name {
+      font-size: 30px;
+    }
+    #loser-name {
+      font-size: 25px;
+    }
+    #winner {
+      font-size: 15px;
+    }
+    #loser {
+      transform: translateY(5%);
+      font-size: 15px;
+    }
+  }
+  #aftermatch-button {
+    top: 82%;
+    left: 50%;
+  }
+}

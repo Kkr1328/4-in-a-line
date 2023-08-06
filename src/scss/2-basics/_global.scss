@@ -1,0 +1,43 @@
+// default across the entire app
+// can be overridden
+
+:root {
+  font-family: "Open Sans", sans-serif;
+  background-color: $global-background-clr;
+}
+
+main.adjust-for-sidebar {
+  // to not overlap sidebar, for both vertical and horizontal sidebar
+  margin-left: $sidebar-width;
+  min-width: calc(100vw - #{$sidebar-width}); // because it has margin-left
+  margin-bottom: 0;
+  @include sidebar-mobile() {
+    margin-left: 0; // no more sidebar at the left hand side
+    margin-bottom: $sidebar-mobile-height;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu-li {
+  // such as buttons on home page
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.backdrop {
+  // overlay that blocks everything behind
+  // to overlay something in front of this, use $greater-backdrop-z-index, see _variables.scss
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  backdrop-filter: blur(2px);
+  position: fixed;
+  z-index: 9999999;
+  visibility: hidden; // "visible" when want to overlay something
+  opacity: 0; // "1" when want to overlay something
+  transition: visibility 0s, opacity 0.5s linear;
+}
